@@ -13,6 +13,10 @@ TempVoicer will wait for you to join the designated Lobby channel and will then 
 
 Note: To be able to use `voice!property`, you must be able to effectively use the `Manage Server` permission.
 
+After you have set up the lobby channel, when joining the lobby, TempVoicer will create a new VoiceChannel and move you into it.
+From there, you can change all parameters of the VoiceChannel as listed below using the `VoiceChannel commands`.
+When all users leave the channel, TempVoicer will delete the channel.
+
 ## All TempVoicer commands
 ### VoiceChannel commands
 | Command                | Description                                                            | Notes                                                     |
