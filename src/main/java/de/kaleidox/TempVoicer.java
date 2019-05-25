@@ -11,6 +11,7 @@ import de.kaleidox.javacord.util.commands.CommandHandler;
 import de.kaleidox.javacord.util.server.properties.ServerPropertiesManager;
 import de.kaleidox.tempvoicer.SessionManager;
 import de.kaleidox.tempvoicer.commands.AdminCommands;
+import de.kaleidox.tempvoicer.commands.BasicCommands;
 import de.kaleidox.tempvoicer.commands.VoicerCommands;
 import de.kaleidox.tempvoicer.voicer.Session;
 import de.kaleidox.util.files.FileProvider;
@@ -42,6 +43,7 @@ public final class TempVoicer {
             CMD = new CommandHandler(API);
             CMD.prefixes = new String[]{"voice!"};
             CMD.useDefaultHelp(null);
+            CMD.registerCommands(BasicCommands.INSTANCE);
             CMD.registerCommands(VoicerCommands.INSTANCE);
             CMD.registerCommands(AdminCommands.INSTANCE);
 
