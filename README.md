@@ -19,14 +19,14 @@ When all users leave the channel, TempVoicer will delete the channel.
 
 ## All TempVoicer commands
 ### VoiceChannel commands
-| Command                | Description                                                            | Notes                                                     |
-|------------------------|------------------------------------------------------------------------|-----------------------------------------------------------|
-| `voice!lock`           | Locks your voice channel for all other users                           | Users that are already in the channel stay in the channel |
-| `voice!unlock`         | Unlocks your voice channel for all other users                         |                                                           |
-| `voice!name <Name>`    | Changes the name of your voice channel                                 |                                                           |
-| `voice!limit <Number>` | Changes the user limit of your voice channel to the given number       | Fails if the parameter is not an Integer                  |
-| `voice!permit <User>`  | Locks your voice channel for all other users except the mentioned user | BETA: Might not work properly                             |
-| `voice!reject <User>`  | Disallows the mentioned user from joining your voice channel           | BETA: Might not work properly                             |
+| Command                 | Description                                                            | Notes                                                     |
+|-------------------------|------------------------------------------------------------------------|-----------------------------------------------------------|
+| `voicer!lock`           | Locks your voice channel for all other users                           | Users that are already in the channel stay in the channel |
+| `voicer!unlock`         | Unlocks your voice channel for all other users                         |                                                           |
+| `voicer!name <Name>`    | Changes the name of your voice channel                                 |                                                           |
+| `voicer!limit <Number>` | Changes the user limit of your voice channel to the given number       | Fails if the parameter is not an Integer                  |
+| `voicer!permit <User>`  | Locks your voice channel for all other users except the mentioned user | BETA: Might not work properly                             |
+| `voicer!reject <User>`  | Disallows the mentioned user from joining your voice channel           | BETA: Might not work properly                             |
 ### Other commands
 | Command                                         | Description                                                           | Notes                                             |
 |-------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------------------|
