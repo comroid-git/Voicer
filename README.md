@@ -1,21 +1,21 @@
-### With TempVoicer, creating and managing temporary VoiceChannels has never been easier!
-TempVoicer will wait for you to join the designated Lobby channel and will then create a new voice channel in either a designated category or just after the last channel.
+### With Voicer, creating and managing temporary VoiceChannels has never been easier!
+Voicer will wait for you to join the designated Lobby channel and will then create a new voice channel in either a designated category or just after the last channel.
 
 ## Invite Link
-[Click here](https://discordapp.com/oauth2/authorize/?permissions=17918032&scope=bot&client_id=581758105000607767) to invite TempVoicer to your discord guild
+[Click here](https://discordapp.com/oauth2/authorize/?permissions=17918032&scope=bot&client_id=581758105000607767) to invite Voicer to your discord guild
 
-## Setting up TempVoicer
+## Setting up Voicer
 |     Step     | Description                                                                                                                                                  | Example Command                                       |
 |:------------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
 |       1      | Invite the Bot to the server and assign it all permissions that it requests with the invite                                                                  |                                                       |
-|       2      | Define a lobby channel. This channel must already exist. You define it by issuing `voice!property voicer.lobby.id <ID>`                                      | `voice!property voice.lobby.id 488124623234531358`    |
-| 3 (Optional) | Define a category in which the channels should be created. This category must already exist. You define it by using `voice!property voicer.category.id <ID>` | `voice!property voice.category.id 479438201887522836` |
+|       2      | Define a lobby channel. This channel must already exist. You define it by issuing `voicer!property voicer.lobby.id <ID>`                                      | `voicer!property voicer.lobby.id 488124623234531358`    |
+| 3 (Optional) | Define a category in which the channels should be created. This category must already exist. You define it by using `voicer!property voicer.category.id <ID>` | `voice!property voicer.category.id 479438201887522836` |
 
-Note: To be able to use `voice!property`, you must be able to effectively use the `Manage Server` permission.
+Note: To be able to use `voicer!property`, you must be able to effectively use the `Manage Server` permission.
 
-After you have set up the lobby channel, when joining the lobby, TempVoicer will create a new VoiceChannel and move you into it.
+After you have set up the lobby channel, when joining the lobby, Voicer will create a new VoiceChannel and move you into it.
 From there, you can change all parameters of the VoiceChannel as listed below using the `VoiceChannel commands`.
-When all users leave the channel, TempVoicer will delete the channel.
+When all users leave the channel, Voicer will delete the channel.
 
 ## All TempVoicer commands
 ### VoiceChannel commands
