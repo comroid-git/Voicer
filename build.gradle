@@ -27,7 +27,7 @@ dependencies {
     // Javacord Utilities
     //implementation('de.kaleidox:javacord-utilities:1.0.0')
     //        { exclude group: 'org.javacord' }
-    implementation('com.github.burdoto:javacord-utilities:1.0.1')
+    implementation('com.github.burdoto:javacord-utilities:1.0.2rev1')
             { exclude group: 'org.javacord' }
     
     // Other dependencies
