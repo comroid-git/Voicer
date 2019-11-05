@@ -6,16 +6,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import de.kaleidox.botstats.BotListSettings;
-import de.kaleidox.botstats.javacord.JavacordStatsClient;
-import de.kaleidox.javacord.util.commands.CommandHandler;
-import de.kaleidox.javacord.util.server.properties.ServerPropertiesManager;
 import de.comroid.tempvoicer.SessionManager;
 import de.comroid.tempvoicer.commands.AdminCommands;
 import de.comroid.tempvoicer.commands.BasicCommands;
 import de.comroid.tempvoicer.commands.VoicerCommands;
 import de.comroid.util.files.FileProvider;
 import de.comroid.util.files.OSValidator;
+import de.kaleidox.botstats.BotListSettings;
+import de.kaleidox.botstats.javacord.JavacordStatsClient;
+import de.kaleidox.botstats.model.StatsClient;
+import de.kaleidox.javacord.util.commands.CommandHandler;
+import de.kaleidox.javacord.util.server.properties.ServerPropertiesManager;
 
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
@@ -26,7 +27,7 @@ import org.javacord.api.util.logging.ExceptionLogger;
 public final class Voicer {
     public static final DiscordApi API;
     public static final CommandHandler CMD;
-    public static final JavacordStatsClient STATS;
+    public static final StatsClient STATS;
     public static final ServerPropertiesManager PROP;
 
     static {
@@ -42,11 +43,18 @@ public final class Voicer {
             API.updateStatus(UserStatus.DO_NOT_DISTURB);
             API.updateActivity("Booting up...");
 
-            final BotListSettings settings = BotListSettings.builder()
+            STATS = new JavacordStatsClient(BotListSettings.builder()
                     .postStatsTester(OSValidator::isUnix)
                     .tokenFile(FileProvider.getFile("login/botLists.properties"))
-                    .build();
-            STATS = new JavacordStatsClient(settings, API);
+                    .build(), API);
+            API.getThreadPool().getScheduler()
+                    .scheduleAtFixedRate(() -> {
+                        try {
+                            STATS.updateTokensFromFile();
+                        } catch (IOException e) {
+                            throw new RuntimeException("Updating Stat Tokens", e);
+                        }
+                    }, 1, 1, TimeUnit.HOURS);
 
             CMD = new CommandHandler(API);
             CMD.prefixes = new String[]{"voice!"};
