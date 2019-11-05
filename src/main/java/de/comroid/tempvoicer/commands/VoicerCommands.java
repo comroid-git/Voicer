@@ -47,7 +47,7 @@ public enum VoicerCommands {
 
     @Command(requiredArguments = 1)
     public void limit(User user, String[] args) {
-        if (!args[0].matches("[0-9]+"))
+        if (!args[0].matches("[^0][0-9]+"))
             throw new IllegalArgumentException("No valid number was entered!");
         SessionManager.INSTANCE.getSession(user)
                 .map(Session::getChannel)
