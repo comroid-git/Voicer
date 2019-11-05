@@ -35,8 +35,6 @@ public enum SessionManager implements Closeable, ServerVoiceChannelMemberJoinLis
         Server server = event.getServer();
         User user = event.getUser();
 
-        if (event.isMove()) return;
-
         if (Voicer.PROP.getProperty("voicer.lobby.id")
                 .getValue(server)
                 .asLong() == event.getChannel().getId()) {
