@@ -1,11 +1,12 @@
-package de.kaleidox.tempvoicer;
+package de.comroid.tempvoicer;
 
 import java.io.Closeable;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
-import de.kaleidox.tempvoicer.voicer.Session;
+import de.comroid.Voicer;
+import de.comroid.tempvoicer.voicer.Session;
 
 import org.javacord.api.entity.channel.ServerVoiceChannel;
 import org.javacord.api.entity.server.Server;
@@ -14,8 +15,6 @@ import org.javacord.api.event.channel.server.voice.ServerVoiceChannelMemberJoinE
 import org.javacord.api.event.channel.server.voice.ServerVoiceChannelMemberLeaveEvent;
 import org.javacord.api.listener.channel.server.voice.ServerVoiceChannelMemberJoinListener;
 import org.javacord.api.listener.channel.server.voice.ServerVoiceChannelMemberLeaveListener;
-
-import static de.kaleidox.TempVoicer.PROP;
 
 public enum SessionManager implements Closeable, ServerVoiceChannelMemberJoinListener, ServerVoiceChannelMemberLeaveListener {
     INSTANCE;
@@ -38,7 +37,7 @@ public enum SessionManager implements Closeable, ServerVoiceChannelMemberJoinLis
 
         if (event.isMove()) return;
 
-        if (PROP.getProperty("voicer.lobby.id")
+        if (Voicer.PROP.getProperty("voicer.lobby.id")
                 .getValue(server)
                 .asLong() == event.getChannel().getId()) {
             // joined into lobby

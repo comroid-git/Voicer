@@ -1,6 +1,8 @@
-package de.kaleidox.tempvoicer.voicer;
+package de.comroid.tempvoicer.voicer;
 
 import java.util.concurrent.CompletableFuture;
+
+import de.comroid.Voicer;
 
 import org.javacord.api.entity.DiscordEntity;
 import org.javacord.api.entity.channel.Channel;
@@ -10,19 +12,16 @@ import org.javacord.api.entity.channel.ServerVoiceChannelBuilder;
 import org.javacord.api.entity.server.Server;
 import org.javacord.api.entity.user.User;
 
-import static de.kaleidox.TempVoicer.API;
-import static de.kaleidox.TempVoicer.PROP;
-
 public class Session {
     private final long voiceId;
     private final long owner;
 
     public Session(Server server, User owner) {
-        long categoryId = PROP.getProperty("voicer.category.id").getValue(server).asLong();
+        long categoryId = Voicer.PROP.getProperty("voicer.category.id").getValue(server).asLong();
 
         ServerVoiceChannelBuilder voiceChannelBuilder = server.createVoiceChannelBuilder()
                 .setName(owner.getDisplayName(server));
-        if (categoryId != -1) API.getChannelById(categoryId)
+        if (categoryId != -1) Voicer.API.getChannelById(categoryId)
                 .flatMap(Channel::asChannelCategory)
                 .ifPresent(voiceChannelBuilder::setCategory);
         this.voiceId = voiceChannelBuilder.create()
@@ -35,7 +34,7 @@ public class Session {
     public boolean close(long by) {
         if (by != owner) return false;
 
-        API.getChannelById(voiceId)
+        Voicer.API.getChannelById(voiceId)
                 .flatMap(Channel::asServerVoiceChannel)
                 .map(ServerChannel::delete)
                 .ifPresent(CompletableFuture::join);
@@ -43,7 +42,7 @@ public class Session {
     }
 
     public ServerVoiceChannel getChannel() {
-        return API.getChannelById(voiceId)
+        return Voicer.API.getChannelById(voiceId)
                 .flatMap(Channel::asServerVoiceChannel)
                 .orElseThrow(() -> new AssertionError("Channel could not be found!"));
     }

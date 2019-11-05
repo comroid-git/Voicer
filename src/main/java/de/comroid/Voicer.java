@@ -1,20 +1,20 @@
-package de.kaleidox;
+package de.comroid;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FilePermission;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import de.kaleidox.botstats.BotListSettings;
+import de.kaleidox.botstats.javacord.JavacordStatsClient;
 import de.kaleidox.javacord.util.commands.CommandHandler;
 import de.kaleidox.javacord.util.server.properties.ServerPropertiesManager;
-import de.kaleidox.tempvoicer.SessionManager;
-import de.kaleidox.tempvoicer.commands.AdminCommands;
-import de.kaleidox.tempvoicer.commands.BasicCommands;
-import de.kaleidox.tempvoicer.commands.VoicerCommands;
-import de.kaleidox.tempvoicer.voicer.Session;
-import de.kaleidox.util.files.FileProvider;
+import de.comroid.tempvoicer.SessionManager;
+import de.comroid.tempvoicer.commands.AdminCommands;
+import de.comroid.tempvoicer.commands.BasicCommands;
+import de.comroid.tempvoicer.commands.VoicerCommands;
+import de.comroid.util.files.FileProvider;
 
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
@@ -22,7 +22,7 @@ import org.javacord.api.entity.activity.ActivityType;
 import org.javacord.api.entity.user.UserStatus;
 import org.javacord.api.util.logging.ExceptionLogger;
 
-public final class TempVoicer {
+public final class Voicer {
     public static final DiscordApi API;
     public static final CommandHandler CMD;
     public static final ServerPropertiesManager PROP;

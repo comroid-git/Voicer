@@ -1,4 +1,4 @@
-group 'de.kaleidox'
+group 'de.comroid'
 version '0.9'
 
 apply plugin: 'java'
@@ -6,7 +6,7 @@ apply plugin: 'application'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-mainClassName = 'de.kaleidox.TempVoicer'
+mainClassName = 'de.comroid.Voicer'
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -29,9 +29,9 @@ dependencies {
     //        { exclude group: 'org.javacord' }
     implementation('com.github.burdoto:javacord-utilities:1.0.2rev1')
             { exclude group: 'org.javacord' }
-    
+
     // Other dependencies
-    implementation 'com.github.DiscordBotList:DBL-Java-Library:2.0.1'
+    implementation 'de.kaleidox:discordbotlist-stats-javacord:0.1.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.0'
 
     // Runtime logger dependency

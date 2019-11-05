@@ -1,11 +1,11 @@
-package de.kaleidox.tempvoicer.commands;
+package de.comroid.tempvoicer.commands;
 
 import java.util.concurrent.CompletableFuture;
 
+import de.comroid.tempvoicer.SessionManager;
+import de.comroid.tempvoicer.voicer.Session;
 import de.kaleidox.javacord.util.commands.Command;
 import de.kaleidox.javacord.util.commands.CommandGroup;
-import de.kaleidox.tempvoicer.SessionManager;
-import de.kaleidox.tempvoicer.voicer.Session;
 
 import org.javacord.api.entity.channel.ServerVoiceChannelUpdater;
 import org.javacord.api.entity.message.Message;

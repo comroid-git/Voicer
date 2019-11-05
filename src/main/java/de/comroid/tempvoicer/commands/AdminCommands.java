@@ -1,4 +1,4 @@
-package de.kaleidox.tempvoicer.commands;
+package de.comroid.tempvoicer.commands;
 
 import de.kaleidox.javacord.util.commands.Command;
 
