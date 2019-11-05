@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class FileProvider {
-    private final static String UNIX_PREPATH = "/var/bots/tempvoicer/";
+    private final static String UNIX_PREPATH = "/var/bots/voicer/";
 
     public static File getFile(String subPath) {
         if (OSValidator.isUnix()) {
