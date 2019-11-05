@@ -11,10 +11,9 @@ import org.javacord.api.entity.channel.ServerVoiceChannelUpdater;
 import org.javacord.api.entity.message.Message;
 import org.javacord.api.entity.permission.PermissionType;
 import org.javacord.api.entity.permission.Permissions;
-import org.javacord.api.entity.server.Server;
 import org.javacord.api.entity.user.User;
 
-@CommandGroup(name = "Main Voicer Commands", description = "Main commands for using Voicer", ordinal = 0)
+@CommandGroup(name = "Main TempVoicer Commands", description = "Main commands for using TempVoicer", ordinal = 0)
 public enum VoicerCommands {
     INSTANCE;
 
@@ -83,19 +82,5 @@ public enum VoicerCommands {
                     return channelUpdater.update();
                 })
                 .ifPresent(CompletableFuture::join);
-    }
-    
-    @Command(requiredUserMentions = 1, enablePrivateChat = false)
-    public String kick(User user, Message message, Server server) {
-        final int kicked = SessionManager.INSTANCE.getSession(user)
-                .map(Session::getChannel)
-                .map(svc -> (int) message.getMentionedUsers()
-                        .stream()
-                        .map(server::kickUserFromVoiceChannel)
-                        .map(CompletableFuture::join)
-                        .count())
-                .orElse(0);
-        
-        return String.format("Kicked %d User%s", kicked, kicked == 1 ? "" : "s");
     }
 }
