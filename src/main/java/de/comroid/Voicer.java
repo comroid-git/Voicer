@@ -54,7 +54,7 @@ public final class Voicer {
                         } catch (IOException e) {
                             throw new RuntimeException("Updating Stat Tokens", e);
                         }
-                    }, 1, 1, TimeUnit.HOURS);
+                    }, 1, 1, TimeUnit.DAYS);
 
             CMD = new CommandHandler(API);
             CMD.prefixes = new String[]{"voice!"};
