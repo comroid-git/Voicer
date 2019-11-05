@@ -15,6 +15,7 @@ import de.comroid.tempvoicer.commands.AdminCommands;
 import de.comroid.tempvoicer.commands.BasicCommands;
 import de.comroid.tempvoicer.commands.VoicerCommands;
 import de.comroid.util.files.FileProvider;
+import de.comroid.util.files.OSValidator;
 
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
@@ -25,6 +26,7 @@ import org.javacord.api.util.logging.ExceptionLogger;
 public final class Voicer {
     public static final DiscordApi API;
     public static final CommandHandler CMD;
+    public static final JavacordStatsClient STATS;
     public static final ServerPropertiesManager PROP;
 
     static {
@@ -39,6 +41,12 @@ public final class Voicer {
 
             API.updateStatus(UserStatus.DO_NOT_DISTURB);
             API.updateActivity("Booting up...");
+
+            final BotListSettings settings = BotListSettings.builder()
+                    .postStatsTester(OSValidator::isUnix)
+                    .tokenFile(FileProvider.getFile("login/botLists.properties"))
+                    .build();
+            STATS = new JavacordStatsClient(settings, API);
 
             CMD = new CommandHandler(API);
             CMD.prefixes = new String[]{"voice!"};
