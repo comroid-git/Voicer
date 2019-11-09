@@ -4,8 +4,8 @@ import java.util.concurrent.CompletableFuture;
 
 import de.comroid.tempvoicer.SessionManager;
 import de.comroid.tempvoicer.voicer.Session;
-import de.kaleidox.javacord.util.commands.Command;
-import de.kaleidox.javacord.util.commands.CommandGroup;
+import de.comroid.javacord.util.commands.Command;
+import de.comroid.javacord.util.commands.CommandGroup;
 
 import org.javacord.api.entity.channel.ServerVoiceChannelUpdater;
 import org.javacord.api.entity.message.Message;
@@ -38,7 +38,7 @@ public enum VoicerCommands {
                 .ifPresent(CompletableFuture::join);
     }
 
-    @Command(requiredArguments = 1)
+    @Command(minimumArguments = 1)
     public void name(User user, String[] args) {
         SessionManager.INSTANCE.getSession(user)
                 .map(Session::getChannel)
@@ -46,7 +46,7 @@ public enum VoicerCommands {
                 .ifPresent(CompletableFuture::join);
     }
 
-    @Command(requiredArguments = 1)
+    @Command(minimumArguments = 1)
     public void limit(User user, String[] args) {
         if (!args[0].matches("[^0][0-9]+"))
             throw new IllegalArgumentException("No valid number was entered!");
