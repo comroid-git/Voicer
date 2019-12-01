@@ -1,12 +1,20 @@
+apply plugin: 'application'
+
 group 'de.comroid'
 version '0.9'
 
-apply plugin: 'java'
-apply plugin: 'application'
+apply from: 'gradle/ext.gradle'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 mainClassName = 'de.comroid.Voicer'
+
+wrapper {
+    gradleVersion = '5.6'
+    distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+}
+
+apply from: 'gradle/docker.gradle'
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -23,7 +31,7 @@ dependencies {
     // Javacord
     //implementation 'org.javacord:javacord:3.0.+'
     implementation 'com.github.burdoto:Javacord:437e5907f9'
-    
+
     // Javacord Utilities
     implementation('de.comroid:javacord-utilities:1.1.0')
             { exclude group: 'org.javacord' }
