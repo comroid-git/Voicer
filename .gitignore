@@ -3,7 +3,7 @@
 build/**
 
 # JetBrains
-.idea/
+.idea/**
 **.iml
 out/**
 
