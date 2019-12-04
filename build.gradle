@@ -24,13 +24,14 @@ tasks.withType(JavaCompile) {
 repositories {
     jcenter()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-    maven { url "https://jitpack.io" }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     // Javacord
-    //implementation 'org.javacord:javacord:3.0.+'
-    implementation 'com.github.burdoto:Javacord:437e5907f9'
+    // todo Update Javacord when possible (A simple TeamCity Deploy should do)
+    implementation 'org.javacord:javacord:3.0.+'
+    implementation 'com.github.Javacord.Javacord:javacord:v3.0.+'
 
     // Javacord Utilities
     implementation('de.comroid:javacord-utilities:1.1.0')
