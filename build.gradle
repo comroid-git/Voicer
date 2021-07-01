@@ -31,7 +31,7 @@ dependencies {
     // Javacord
     // todo Update Javacord when possible (A simple TeamCity Deploy should do)
     implementation 'org.javacord:javacord:3.0.+'
-    implementation 'com.github.Javacord.Javacord:javacord:v3.0.+'
+    implementation 'com.github.Javacord.Javacord:javacord:3.3.+'
 
     // Javacord Utilities
     implementation('de.comroid:javacord-utilities:1.1.0')
