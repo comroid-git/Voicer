@@ -30,7 +30,7 @@ repositories {
 dependencies {
     // Javacord
     // todo Update Javacord when possible (A simple TeamCity Deploy should do)
-    implementation 'org.javacord:javacord:3.0.+'
+    implementation 'org.javacord:javacord:3.3.+'
     implementation 'com.github.Javacord.Javacord:javacord:v3.0.+'
 
     // Javacord Utilities
